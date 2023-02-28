@@ -1,24 +1,40 @@
-# README
+# go_fishing
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+リアルタイムの釣果情報が見られたり、自分の今日の釣果を投稿できるコミュニティサイト
 
-Things you may want to cover:
+### テーマを選んだ理由
+リアルタイムの釣果情報を共有し合い、今日の魚影が濃い場所を簡単に調べられるようにしたいと思いました。
 
-* Ruby version
+今どんな魚が釣れているのか、どういった場所に魚が生息しているのかなどを知らずに釣り場に行っても、なかなか釣ることができません。
+また、魚の生息区域などを調べても、その日の天候や前日までの天候によって釣れないことが多くあります。
+それにより釣りの面白さを知らずにやめてしまう方も多いです。
+しかし、釣れた時の快感を味わえば釣りの魅力に気づいたり、新しい趣味として続けていくかもしれません。
 
-* System dependencies
+リアルタイムの釣果情報を知ることが出来れば、期待値が高い場所で釣りが出来、より一層釣りを楽しめると思います。
 
-* Configuration
+### ターゲットユーザ
+・趣味で釣りをしている方
+・釣り初心者の方
+・釣りに興味のある方
 
-* Database creation
+### 主な利用シーン
+・魚が釣れた時時（48時間以内に投稿）
+・釣行に行く前
+・最近何が釣れてるのか知りたい時
 
-* Database initialization
+## 設計書
+<...>
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+ロイヤルフリー　https://www.photolibrary.jp/
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は、使用素材の項目をREADMEから削除してください。
