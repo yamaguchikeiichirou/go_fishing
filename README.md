@@ -39,5 +39,5 @@
 
 ## 使用素材
 ロイヤルフリー　https://www.photolibrary.jp/
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
+freroik         https://jp.freepik.com/free-photos-vectors/fishing-logo
+wix.            https://ja.wix.com/logo/maker
