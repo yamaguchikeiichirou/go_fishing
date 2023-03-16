@@ -4,4 +4,8 @@ class FishingSuccess < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :fishing_success_tags, dependent: :destroy
   has_one_attached :image
+  
+  def favorited_by?(angler)
+    favorites.exists?(angler_id: angler.id)
+  end
 end

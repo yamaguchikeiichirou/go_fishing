@@ -16,6 +16,6 @@ class Public::AnglersController < ApplicationController
   end
   
   def angler_params
-      params.require(:angler).permit(:name, :introduction, :imag)
+      params.require(:angler).permit(:name, :introduction, :image)
   end
 end
