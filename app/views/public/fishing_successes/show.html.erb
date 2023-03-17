@@ -3,51 +3,49 @@
   <div class="container mx-0">
     <div class="row justify-content-between">
       <div class="col-2">
-        <div class="row justify-content-md-center border-bottom border-right border-dark" style="background-color: #F5F5F5;">地域から探す</div>
-        <div class="row justify-content-md-center border-bottom border-right border-dark" hibht="100%" style="background-color: #F5F5F5;"></div>
+        <div class="row justify-content-center border-bottom border-right border-dark" style="background-color: #F5F5F5;">地域から探す</div>
+        <div class="row justify-content-center border-bottom border-right border-dark" hibht="100%" style="background-color: #F5F5F5;"></div>
       </div>
       <div class="col-8">
-        <div class="row justify-content-md-center my-3">
+        <div class="row justify-content-center my-3">
           <div class="col-3 border-right rounded-circle border border-dark text-white text-center py-1" style="background-color: #6D8764;">
             釣果記録
           </div>
         </div>
-        <div class="row justify-content-md-center rounded-top border border-dark" style="background-color: #F5F5F5;">
+        <div class="row justify-content-center rounded-top border border-dark" style="background-color: #F5F5F5;">
           <div class="col text-center my-2">
             <%= current_angler.name %>
           </div>
         </div>
         <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
-          <div class="col">
+          <div class="col px-3">
             <%= @fishing_success.fishing_day.strftime("%m月%d日の釣果")  %>
           </div>
-          <div class="col">
+          <div class="col px-3">
             釣れた場所
           </div>
         </div>
         <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
-          <div class="col">
+          <div class="col px-3">
             <div class="row">
-              <% if @fishing_success.image.attached? %>
-                <%= image_tag @fishing_success.image, size: "300x200" %>
-              <% else %>
-                <%= image_tag 'no_image', size: "300x200" %>
-              <% end %>
+              <div class="col">
+                <%= image_tag @fishing_success.get_image, :size =>'350x250' %>
+              </div>
             </div>
             <div class="row">
               <div class="col">
                 <p>コメント件数：<%= @fishing_success.comments.count %></p>
               </div>
-              <div class="col">
+              <div class="col border-0">
                 <% if @fishing_success.favorited_by?(current_angler) %>
                 <p>
-                  <%= link_to fishing_success_favorites_path(@fishing_success), method: :delete do %>
+                  <%= link_to fishing_success_favorites_path(@fishing_success), method: :delete, class: "favorite" do %>
                     ♥<%= @fishing_success.favorites.count %> いいね
                   <% end %>
                 </p>
                 <% else %>
                 <p>
-                  <%= link_to fishing_success_favorites_path(@fishing_success), method: :post do %>
+                  <%= link_to fishing_success_favorites_path(@fishing_success), method: :post, class: "not-favorite" do %>
                     ♡<%= @fishing_success.favorites.count %> いいね
                   <% end %>
                 </p>
@@ -55,11 +53,11 @@
               </div>
             </div>
           </div>
-          <div class="col">
+          <div class="col px-3">
 
           </div>
         </div>
-        <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
+        <div class="row border-right border-left border-dark px-3" style="background-color: #F5F5F5;">
           <div class="col">
             <table width="100%">
               <tr class="border-bottom border-dark">
@@ -77,52 +75,51 @@
             </table>
           </div>
           <div class="col">
-            <div class="row">
+            <div class="row px-3">
               <div class="col text-right text-warning">
                 Google Map へ移動
               </div>
             </div>
-            <div class="row">
+            <div class="row px-3">
               <div class="col bg-white rounded border border-dark" style="height: 80px;">
                 <%= @fishing_success.situation %>
               </div>
             </div>
-            <div class="row">
+            <div class="row px-3">
               <%= @fishing_success.angler.name %>からの情報！
             </div>
           </div>
         </div>
-        <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
+        <div class="row border-right border-left border-dark pt-3 px-2" style="background-color: #F5F5F5;">
           <div class="col">
             <%= current_angler.name %>
           </div>
         </div>
-        <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
+        <div class="row border-right border-left border-dark px-2" style="background-color: #F5F5F5;">
           <div class="col-12 text-right">
             <%= form_with model: [@fishing_success, @comment] do |f| %>
               <%= f.text_area :content, placeholder: "コメントをする", class: "form-control form-control-sm" %>
-              <%= f.submit "送信する", class: "my-2 rounded-pill border-0", style: "background-color: #9999FF" %>
+              <%= f.submit "送信する", class: "mb-3 mt-1 rounded-pill border-0", style: "background-color: #9999FF" %>
             <% end %>
           </div>
         </div>
-        <div class="row rounded-bottom border-right border-left border-bottom border-dark mb-5" style="background-color: #F5F5F5;">
-          <div class="col-12 mb-3">
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                コメント<%= @fishing_success.comments.count %>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <% @fishing_success.comments.each do |comment| %>
-                  <li>
-                    <button class="dropdown-item" type="button">
-                      <%= comment.angler.name %><%= comment.created_at.strftime('%m/%d') %></br>
-                      <%= comment.content %>
-                    </button>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
+        <div class="row border-right border-left border-dark">
+          <div class="col" style="color: #FFFFFF; background-color: #666666;">
+            <%= @fishing_success.comments.count %>件のコメント
           </div>
+        </div>
+        <div class="row rounded-bottom border-right border-left border-bottom border-dark mb-5" style="background-color: #FFFFFF;">
+          <% @fishing_success.comments.each do |comment| %>
+            <div class="col-3 mb-3">
+              <%= comment.angler.name %>
+            </div>
+            <div class="col-7 mb-3">
+              <%= comment.content %>
+            </div>
+            <div class="col-2 mb-3" style="color: #999999;">
+              <%= comment.created_at.strftime('%m月%d日') %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

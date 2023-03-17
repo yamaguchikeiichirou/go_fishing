@@ -30,7 +30,13 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-    resources :anglers, only: [:show, :edit, :verification, :update, :destroy]
+    get 'anglers/favorites'=>'anglers#my_favorite'
+    get 'anglers/fishing_successes'=>'anglers#my_post'
+    get 'anglers/mypage'=>"anglers#show"
+    get 'anglers/information/edit'=>"anglers#edit"
+    get 'anglers/withdrawal/verification'=>"anglers#verification"
+    patch 'anglers/information'=>"anglers#update"
+    delete 'anglers/withdrawal'=>"anglers#destroy"
   end
 
 end

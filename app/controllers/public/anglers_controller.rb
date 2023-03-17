@@ -1,6 +1,13 @@
 class Public::AnglersController < ApplicationController
   before_action :authenticate_angler!
   def show
+    @angler = current_angler
+  end
+  
+  def my_favorite
+  end
+  
+  def my_post
   end
 
   def edit

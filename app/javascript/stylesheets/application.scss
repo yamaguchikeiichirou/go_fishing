@@ -1,2 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+.favorite{
+  text-decoration: none;
+  color: #FF3399;
+}
+
+.not-favorite{
+  text-decoration: none;
+  color: #999999;
+}

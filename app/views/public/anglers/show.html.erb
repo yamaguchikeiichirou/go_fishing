@@ -1,3 +1,69 @@
 <%= render 'public/header' %>
-<h1>Public::Anglers#show</h1>
-<p>Find me in app/views/public/anglers/show.html.erb</p>
+<main style="background-color: #F9F7ED;">
+  <div class="container mx-0">
+    <div class="row">
+      <div class="col-2 border-right border-dark" style="background-color: #F5F5F5;">
+        <div class="row justify-content-md-center border-bottom border-dark">地域から探す</div>
+        <div></div>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-4">
+        <div class="row justify-content-center my-3">
+          <div class="col-auto rounded border border-dark text-white text-center fs-4" style="background-color: #647687;">
+            マイページ
+          </div>
+        </div>
+        <div class="row border-top border-right border-left border-dark" style="color: #6600CC; background-color: #BAC8D3">
+          <div class="col text-center my-4">
+            <h2>プロフィール</h2>
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
+          <div class="col-5 text-center">
+            <%= image_tag @angler.get_profile_image(100,100), class: "rounded-circle" %>
+          </div>
+          <div class="col-7 my-2">
+            <div class="row py-2">
+              <%= @angler.name %>
+            </div>
+            <div class="row py-2">
+              <%= @angler.email %>
+            </div>
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
+          <div class="col mx-5 mt-4">
+            自己紹介文
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
+          <div class="col bg-white rounded border border-dark mx-5 mb-3" style="height: 100px;">
+            <%= @angler.introduction %>
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark px-3" style="background-color: #BAC8D3;">
+          <div class="col text-center">
+            <%= link_to "プロフィール編集", anglers_information_edit_path, class: "btn btn-secondary btn-lg px-4 mb-4 mt-5" %>
+          </div>
+        </div>
+        <div class="row border-right border-left border-bottom border-dark pt-3 mb-4" style="background-color: #BAC8D3;">
+          <div class="col-4 my-4 py-3 text-center border-bottom border-top border-dark" style="background-color: #FFF;">
+            <%= link_to new_fishing_success_path, style: "color: #808080;" do %>
+              釣果投稿
+            <% end %>
+          </div>
+          <div class="col-4 my-4 py-3 text-center border border-dark" style="background-color: #FFF;">
+            <%= link_to anglers_fishing_successes_path, style: "color: #808080;" do %>
+              投稿履歴
+            <% end %>
+          </div>
+          <div class="col-4 my-4 py-3 text-center border-bottom border-top border-dark" style="background-color: #FFF;">
+            <%= link_to anglers_favorites_path, style: "color: #808080;" do %>
+              お気に入り
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
