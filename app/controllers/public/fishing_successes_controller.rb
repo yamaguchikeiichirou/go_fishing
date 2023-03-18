@@ -4,6 +4,9 @@ class Public::FishingSuccessesController < ApplicationController
   end
 
   def search
+    @fishing_success = FishingSuccess.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
   end
 
   def show
@@ -28,5 +31,5 @@ class Public::FishingSuccessesController < ApplicationController
   def fishing_success_params
       params.require(:fishing_success).permit(:angler_id, :fishing_day, :species, :tackle, :method, :place, :lng, :lat, :situation ,:image)
   end
-  
+
 end

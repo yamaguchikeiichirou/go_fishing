@@ -11,9 +11,13 @@ class Public::AnglersController < ApplicationController
   end
 
   def edit
+    @angler = current_angler
   end
   
   def update
+    @angler = current_angler
+    @angler.update(angler_params)
+    redirect_to anglers_mypage_path
   end
 
   def verification
@@ -23,6 +27,6 @@ class Public::AnglersController < ApplicationController
   end
   
   def angler_params
-      params.require(:angler).permit(:name, :introduction, :image)
+      params.require(:angler).permit(:name, :introduction, :profile_image)
   end
 end

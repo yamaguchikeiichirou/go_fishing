@@ -1,11 +1,12 @@
 <%= render 'public/header' %>
 <main style="background-color: #F9F7ED;">
   <div class="container mx-0">
-    <div class="row justify-content-between">
-      <div class="col-2">
-        <div class="row justify-content-center border-bottom border-right border-dark" style="background-color: #F5F5F5;">地域から探す</div>
-        <div class="row justify-content-center border-bottom border-right border-dark" hibht="100%" style="background-color: #F5F5F5;"></div>
+    <div class="row">
+      <div class="col-2 border-bottom border-right border-dark" style="background-color: #F5F5F5;">
+        <div class="row justify-content-center border-bottom border-dark">地域から探す</div>
+        <div></div>
       </div>
+      <div class="col-1"></div>
       <div class="col-8">
         <div class="row justify-content-center my-3">
           <div class="col-3 border-right rounded-circle border border-dark text-white text-center py-1" style="background-color: #6D8764;">
@@ -29,7 +30,7 @@
           <div class="col px-3">
             <div class="row">
               <div class="col">
-                <%= image_tag @fishing_success.get_image, :size =>'350x250' %>
+                <%= image_tag @fishing_success.get_image, :size =>'300x250' %>
               </div>
             </div>
             <div class="row">
@@ -54,6 +55,35 @@
             </div>
           </div>
           <div class="col px-3">
+
+            <div id='map'></div>
+
+            <style>
+            #map {
+              height: 300px;
+              width: 100%;
+            }
+            </style>
+
+            <script>
+            let map
+            let marker
+            function initMap(){
+              geocoder = new google.maps.Geocoder()
+
+              map = new google.maps.Map(document.getElementById('map'), {
+                center:  {lat: <%= @fishing_success.lat %>, lng: <%= @fishing_success.lng %>},
+                zoom: 15,
+              });
+
+              marker = new google.maps.Marker({
+                position:  {lat: <%= @fishing_success.lat %>, lng: <%= @fishing_success.lng %>},
+                map: map
+              });
+            }
+
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
 
           </div>
         </div>
@@ -94,6 +124,12 @@
           <div class="col">
             <%= current_angler.name %>
           </div>
+        </div>
+        <div class="row text-right border-right border-left border-dark px-2" style="background-color: #F5F5F5;">
+          <%= link_to fishing_successes_path, style: "color: #FFAE00" do %>
+            <i class="fad fa-map-marker-alt"></i>
+            〇〇で件の釣果情報！
+          <% end %>
         </div>
         <div class="row border-right border-left border-dark px-2" style="background-color: #F5F5F5;">
           <div class="col-12 text-right">

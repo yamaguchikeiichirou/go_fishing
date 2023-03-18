@@ -1,13 +1,13 @@
     <% if angler_signed_in? %>
       <header>
-        <nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark" style="background-color: #FFCC99;">
-          <div class="container-fluid pt-4 pb-4">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFCC99;">
+          <div class="container-fluid pt-2 pb-4">
             <div clas="col-5 bg-light p-5 border">
               <a class="navbar-brand" href="/">
                 <span class="text-dark pt-2 pb-2 pl-4 pr-4">rogo</span>
               </a>
             </div>
-            <div clas="col-2">
+            <div clas="col">
               <span>ようこそ、<%= current_angler.name %>！</span>
             </div>
             <div clas="col-auto">
@@ -41,6 +41,14 @@
             </div>
           </div>
         </nav>
+        <div class="row border-bottom border-dark" style="background-color: #FFCC99;">
+          <div class="col text-center mb-3">
+            <%= form_with model: FishingSuccess, url: search_path, method: :get, local: true do |f| %>
+              <%= f.text_field :keyword, value: @keyword, style: "width: 300px" %>
+              <%= f.submit "検索" %>
+            <% end %>
+          </div>
+        </div>
       </header>
     <% else %>
       <header>

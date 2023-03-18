@@ -16,4 +16,8 @@ class FishingSuccess < ApplicationRecord
     end
     image
   end
+  
+  def self.search(keyword)
+    where(["species like? OR place like? OR method like? OR tackle like?", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%"])
+  end
 end

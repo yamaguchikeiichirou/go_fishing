@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    get 'sarch'=>'fishing_successes#search'
-    resources :fishing_successes, only: [:indeex, :show, :new, :create, :destroy] do
+    get 'search'=>'fishing_successes#search'
+    resources :fishing_successes, only: [:index, :show, :new, :create, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
