@@ -10,3 +10,24 @@
   text-decoration: none;
   color: #999999;
 }
+
+.favorite:hover{
+  text-decoration: none;
+  color: #99004D;
+}
+
+.not-favorite:hover{
+  text-decoration: none;
+  color: #4D4D4D;
+}
+
+.link{
+  text-decoration: none;
+  color: #000;
+}
+
+.link:hover{
+  text-decoration: none;
+  color: #000;
+  opacity: 0.8;
+}

@@ -10,12 +10,13 @@
       <div class="col-8">
         <div class="row justify-content-center my-3">
           <div class="col-3 border-right rounded-circle border border-dark text-white text-center py-1" style="background-color: #6D8764;">
-            釣果記録
+            釣果詳細
           </div>
         </div>
         <div class="row justify-content-center rounded-top border border-dark" style="background-color: #F5F5F5;">
           <div class="col text-center my-2">
-            <%= current_angler.name %>
+            <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
+            <%= @fishing_success.angler.name %>
           </div>
         </div>
         <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
@@ -120,16 +121,17 @@
             </div>
           </div>
         </div>
-        <div class="row border-right border-left border-dark pt-3 px-2" style="background-color: #F5F5F5;">
-          <div class="col">
-            <%= current_angler.name %>
-          </div>
-        </div>
         <div class="row text-right border-right border-left border-dark px-2" style="background-color: #F5F5F5;">
           <%= link_to fishing_successes_path, style: "color: #FFAE00" do %>
-            <i class="fad fa-map-marker-alt"></i>
-            〇〇で件の釣果情報！
+            <i class="fas fa-map-marker-alt"></i>
+            〇〇県での釣果情報！
           <% end %>
+        </div>
+        <div class="row border-right border-left border-dark pt-3 px-2" style="background-color: #F5F5F5;">
+          <div class="col">
+            <%= image_tag current_angler.get_profile_image(30,30), class: "rounded-circle" %>
+            <%= current_angler.name %>
+          </div>
         </div>
         <div class="row border-right border-left border-dark px-2" style="background-color: #F5F5F5;">
           <div class="col-12 text-right">
@@ -147,6 +149,7 @@
         <div class="row rounded-bottom border-right border-left border-bottom border-dark mb-5" style="background-color: #FFFFFF;">
           <% @fishing_success.comments.each do |comment| %>
             <div class="col-3 mb-3">
+              <%= image_tag comment.angler.get_profile_image(30,30), class: "rounded-circle" %>
               <%= comment.angler.name %>
             </div>
             <div class="col-7 mb-3">

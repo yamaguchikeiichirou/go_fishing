@@ -5,9 +5,12 @@ class Public::AnglersController < ApplicationController
   end
   
   def my_favorite
+    favorites = Favorite.where(angler_id: current_angler.id).pluck(:fishing_success_id)
+    @favorites_list = FishingSuccess.find(favorites)
   end
   
   def my_post
+    @my_posts = current_angler.fishing_successes
   end
 
   def edit
@@ -24,6 +27,10 @@ class Public::AnglersController < ApplicationController
   end
   
   def destroy
+    @angler = Angler.find(params[:id]) 
+    @angler.destroy
+    flash[:notice] = 'ユーザーを削除しました。'
+    redirect_to :root
   end
   
   def angler_params

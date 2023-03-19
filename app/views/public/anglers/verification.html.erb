@@ -1,3 +1,27 @@
 <%= render 'public/header' %>
-<h1>Public::Anglers#verification</h1>
-<p>Find me in app/views/public/anglers/verification.html.erb</p>
+<main style="background-color: #F9F7ED; height: 700px;">
+  <div class="container mx-0">
+    <div class="row justify-content-center pt-5">
+      <div class="col-auto text-center my-5 py-5 fs-3">
+        本当に退会しますか？
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-center fs-5">
+        <p>
+          退会されるとこのアカウントに関するデータが全て削除されてしまいます。</br>
+          また、このサイトを再度ご利用される際にはもう一度新規登録する必要があります。</br>
+          退会する場合は下の退会するボタンを押してください。
+        </p>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col text-right mr-5">
+        <%= link_to "退会しない",anglers_mypage_path, class: "btn btn-primary btn-sm fs-5" %>
+      </div>
+      <div class="col text-left ml-5">
+        <%= link_to "退会する",anglers_withdrawal_path, class: "btn btn-danger btn-sm fs-5" %>
+      </div>
+    </div>
+  </div>
+</main>

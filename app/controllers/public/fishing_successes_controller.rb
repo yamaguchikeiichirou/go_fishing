@@ -4,9 +4,9 @@ class Public::FishingSuccessesController < ApplicationController
   end
 
   def search
-    @fishing_success = FishingSuccess.search(params[:keyword])
+    @fishing_successes = FishingSuccess.search(params[:fishing_success][:keyword])
     @keyword = params[:keyword]
-    render "index"
+    render "search"
   end
 
   def show
