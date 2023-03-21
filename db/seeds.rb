@@ -9,3 +9,24 @@ Admin.create!(
    email: 'aa@aa.com',
    password: 'aaaaaa'
 )
+
+Tag.create([
+    { name: 'アジ' },
+    { name: 'サバ'},
+    { name: 'イワシ'},
+    { name: 'カサゴ' },
+    { name: 'メバル'},
+    { name: 'アコウ（キジハタ）'},
+    { name: 'ヒラメ'},
+    { name: 'カレイ'},
+    { name: 'キス'},
+    { name: 'ハゼ'},
+    { name: 'サヨリ'},
+    { name: 'カマス'},
+    { name: 'スズキ'},
+    { name: 'タチウオ'},
+    { name: '青物'},
+    { name: 'イカ'},
+    { name: 'タコ'},
+    { name: 'その他'}
+    ])

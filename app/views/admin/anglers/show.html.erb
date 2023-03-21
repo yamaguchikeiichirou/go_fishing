@@ -1,3 +1,45 @@
 <%= render 'admin/header' %>
-<h1>Admin::Anglers#show</h1>
-<p>Find me in app/views/admin/anglers/show.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row justify-content-center my-3">
+      <div class="col text-center fs-4">
+        会員詳細
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <div class="row border-top border-right border-left border-dark pt-4" style="color: #6600CC; background-color: #BAC8D3;">
+          <div class="col-5 text-center">
+            <%= image_tag @angler.get_profile_image(100,100), class: "rounded-circle" %>
+          </div>
+          <div class="col-7 my-2">
+            <div class="row py-2">
+              <%= @angler.id %>
+            </div>
+            <div class="row py-2">
+              <%= @angler.name %>
+            </div>
+            <div class="row py-2">
+              <%= @angler.email %>
+            </div>
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
+          <div class="col mx-5 mt-4">
+            自己紹介文
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
+          <div class="col bg-white rounded border border-dark mx-5 mb-3" style="height: 100px;">
+            <%= @angler.introduction %>
+          </div>
+        </div>
+        <div class="row border-bottom border-right border-left border-dark pb-4" style="background-color: #BAC8D3;">
+          <div class="col text-center">
+            <%= link_to "削除",admin_angler_path(@angler), method: :delete , class: "btn btn-danger btn-sm fs-5" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

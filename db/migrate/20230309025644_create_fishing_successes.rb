@@ -6,7 +6,7 @@ class CreateFishingSuccesses < ActiveRecord::Migration[6.1]
       t.string :species
       t.string :tackle
       t.string :method
-      t.string :place, null: false
+      t.string :place
       t.float :lng, null: false
       t.float :lat, null: false
       t.text :situation

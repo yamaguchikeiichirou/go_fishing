@@ -2,10 +2,10 @@
     <% if admin_signed_in? %>
       <header>
         <nav class="navbar navbar-expand-lg navbar-light border-bottom border-dark" style="background-color: #FFCC99;">
-          <div class="container-fluid pt-4 pb-4">
-            <a class="navbar-brand" href="/admin">
-              <span class="text-dark pt-2 pb-2 pl-4 pr-4">logo</span>
-            </a>
+          <div class="container-fluid">
+            <div clas="col-auto bg-light border navbar-brand">
+              <%= image_tag src="rogo3.jpg", size: "200x150" %>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>

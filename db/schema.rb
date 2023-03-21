@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2023_03_14_052341) do
     t.string "species"
     t.string "tackle"
     t.string "method"
-    t.string "place", null: false
+    t.string "place"
     t.float "lng", null: false
     t.float "lat", null: false
     t.text "situation"

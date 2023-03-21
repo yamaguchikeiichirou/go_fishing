@@ -21,8 +21,11 @@ class Public::FishingSuccessesController < ApplicationController
   def create
     @fishing_success = FishingSuccess.new(fishing_success_params)
     @fishing_success.angler_id = current_angler.id
-    @fishing_success.save
-    redirect_to fishing_success_path(@fishing_success)
+    if @fishing_success.save
+      redirect_to fishing_success_path(@fishing_success)
+    else
+      render :new
+    end
   end
 
   def destroy

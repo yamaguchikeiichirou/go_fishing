@@ -14,6 +14,15 @@
           <div class="row justify-content-md-center border-bottom border-dark my-2">
             <%= current_angler.name %>
           </div>
+          <% if @fishing_success.errors.any? %>
+            <div>
+              <ul style="color: red">
+                <% @fishing_success.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
           <div class="form-group">
             <%= f.label :image, '写真' %>
             <%= f.file_field :image, accept: 'image/*' %>
@@ -27,16 +36,12 @@
             <%= f.text_field :species %>
           </div>
           <div class="form-group">
-            <%= f.label :place, '釣れた場所' %></br>
-            <%= f.text_field :place %>
-          </div>
-          <div class="form-group">
             <%= f.label :lat, '緯度' %></br>
-            <%= f.text_field :lat,:value =>"緯度", id: :lat %>
+            <%= f.text_field :lat,:value =>"", id: :lat %>
           </div>
           <div class="form-group">
             <%= f.label :lng, '経度' %></br>
-            <%= f.text_field :lng,:value =>"経度", id: :lng %>
+            <%= f.text_field :lng,:value =>"", id: :lng %>
           </div>
           <div class="form-group">
             <%= f.label :situation, '今回の釣果状況' %></br>
@@ -102,17 +107,20 @@
                 document.getElementById('lat').value = results[0].geometry.location.lat();
                 document.getElementById('lng').value = results[0].geometry.location.lng();
 
+
                 // マーカーのドロップ（ドラッグ終了）時のイベント
                 google.maps.event.addListener( marker, 'dragend', function(ev){
                     // イベントの引数evの、プロパティ.latLngが緯度経度
                     document.getElementById('lat').value = ev.latLng.lat();
                     document.getElementById('lng').value = ev.latLng.lng();
                 });
+
             } else {
               alert('該当する結果がありませんでした：' + status);
             }
           });
         }
+
 
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>

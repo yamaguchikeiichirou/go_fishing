@@ -1,3 +1,45 @@
 <%= render 'admin/header' %>
-<h1>Admin::FishingSuccesses#index</h1>
-<p>Find me in app/views/admin/fishing_successes/index.html.erb</p>
+<div class="container">
+  <div class="row my-4">
+    <div class="col text-center mt-3 fs-4">
+      投稿一覧
+    </div>
+  </div>
+  <div class="row justify-content-center mx-5">
+    <div class="col-8">
+      <table class="table table-hover table-inverse" width="100%">
+        <thead class="table-secondary">
+          <tr>
+            <th width="20%">釣行日</th>
+            <th width="20%">投稿画像</th>
+            <th width="40%">氏名</th>
+            <th width="20%">投稿日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @fishing_successes.each do |fishing_success| %>
+            <tr>
+              <td>
+                <%= fishing_success.fishing_day.strftime('%m月%d日') %>
+              </td>
+              <td>
+                <%= link_to admin_fishing_success_path(fishing_success), class: "link" do %>
+                  <%= image_tag fishing_success.get_image, :size =>'50x30' %>
+                <% end %>
+              </td>
+              <td>
+                <%= fishing_success.angler.name %>
+              </td>
+              <td  style="color: #999999;">
+                <%= fishing_success.created_at.strftime('%m月%d日') %>
+              </td>
+            </tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+    
+  </div>
+</div>

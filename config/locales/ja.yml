@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      fishing_success:           
+    attributes:
+      fishing_success:          
+        fishing_day: 釣行日
+        place: 釣れた場所
+        lng: 経度
+        lat: 緯度

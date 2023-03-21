@@ -1,3 +1,107 @@
 <%= render 'admin/header' %>
-<h1>Admin::FishingSuccesses#show</h1>
-<p>Find me in app/views/admin/fishing_successes/show.html.erb</p>
+<main>
+  <div class="container">
+    <div class="row my-2">
+      <div class=" text-center mt-3 fs-4">
+        釣果詳細
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-7">
+        <%= link_to admin_angler_path(@fishing_success.angler), class: "link" do %>
+          <div class="row justify-content-center rounded-top border border-dark" style="background-color: #F5F5F5;">
+            <div class="col text-center my-2">
+              <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
+              <%= @fishing_success.angler.name %>
+            </div>
+          </div>
+        <% end %>
+        <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
+          <div class="col px-3">
+            <%= @fishing_success.fishing_day.strftime("%m月%d日の釣果")  %>
+          </div>
+          <div class="col px-3">
+            釣れた場所
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
+          <div class="col px-3">
+            <div class="row">
+              <div class="col">
+                <%= image_tag @fishing_success.get_image, :size =>'300x250' %>
+              </div>
+            </div>
+          </div>
+          <div class="col px-3">
+
+            <div id='map'></div>
+
+            <style>
+            #map {
+              height: 300px;
+              width: 100%;
+            }
+            </style>
+
+            <script>
+            let map
+            let marker
+            function initMap(){
+              geocoder = new google.maps.Geocoder()
+
+              map = new google.maps.Map(document.getElementById('map'), {
+                center:  {lat: <%= @fishing_success.lat %>, lng: <%= @fishing_success.lng %>},
+                zoom: 15,
+              });
+
+              marker = new google.maps.Marker({
+                position:  {lat: <%= @fishing_success.lat %>, lng: <%= @fishing_success.lng %>},
+                map: map
+              });
+            }
+
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap" async defer></script>
+
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark px-3 py-3" style="background-color: #F5F5F5;">
+          <div class="col">
+            <table width="100%">
+              <tr class="border-bottom border-dark">
+                <th>釣果</th>
+                <td><%= @fishing_success.species %></td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <th class="pt-3">タックル</th>
+                <td class="pt-3"><%= @fishing_success.tackle %></td>
+              </tr>
+              <tr class="border-bottom border-dark">
+                <th class="pt-3">釣り方</th>
+                <td class="pt-3"><%= @fishing_success.method %></td>
+              </tr>
+            </table>
+          </div>
+          <div class="col">
+            <div class="row px-3">
+              <div class="col bg-white rounded border border-dark" style="height: 80px;">
+                <%= @fishing_success.situation %>
+              </div>
+            </div>
+            <div class="row px-3">
+              <div class="col">
+                <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
+                <%= @fishing_success.angler.name %>からの情報！
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row rounded-bottom border-right border-left border-bottom border-dark py-3 mb-3" style="background-color: #F5F5F5;">
+          <div class="col text-center">
+            <%= link_to "投稿を削除",admin_fishing_success_path(@fishing_success), method: :delete, class: "btn btn-danger btn-sm fs-5" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

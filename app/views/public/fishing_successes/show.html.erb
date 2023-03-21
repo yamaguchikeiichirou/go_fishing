@@ -117,7 +117,10 @@
               </div>
             </div>
             <div class="row px-3">
-              <%= @fishing_success.angler.name %>からの情報！
+              <div class="col">
+                <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
+                <%= @fishing_success.angler.name %>からの情報！
+              </div>
             </div>
           </div>
         </div>

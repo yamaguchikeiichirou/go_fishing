@@ -1,3 +1,45 @@
 <%= render 'admin/header' %>
-<h1>Admin::Anglers#index</h1>
-<p>Find me in app/views/admin/anglers/index.html.erb</p>
+<div class="container">
+  <div class="row my-4">
+    <div class="col text-center mt-3 fs-4">
+      会員一覧
+    </div>
+  </div>
+  <div class="row justify-content-center mx-5">
+    <div class="col-8">
+      <table class="table table-hover table-inverse" width="100%">
+        <thead class="table-secondary">
+          <tr>
+            <th width="15%">ID</th>
+            <th width="15%">アイコン</th>
+            <th width="30%">氏名</th>
+            <th width="40%">メールアドレス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @anglers.each do |angler| %>
+            <tr>
+              <td>
+                <%= angler.id %>
+              </td>
+              <td>
+                <%= image_tag angler.get_profile_image(30,30), class: "rounded-circle" %>
+              </td>
+              <td>
+                <%= link_to admin_angler_path(angler), class: "text-dark" do %>
+                  <%= angler.name %>
+                <% end %>
+              </td>
+              <td>
+                <%= angler.email %>
+              </td>
+            </tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row justify-content-md-center">
+
+  </div>
+</div>

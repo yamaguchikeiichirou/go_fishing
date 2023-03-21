@@ -3,12 +3,12 @@ class Public::AnglersController < ApplicationController
   def show
     @angler = current_angler
   end
-  
+
   def my_favorite
     favorites = Favorite.where(angler_id: current_angler.id).pluck(:fishing_success_id)
     @favorites_list = FishingSuccess.find(favorites)
   end
-  
+
   def my_post
     @my_posts = current_angler.fishing_successes
   end
@@ -16,7 +16,7 @@ class Public::AnglersController < ApplicationController
   def edit
     @angler = current_angler
   end
-  
+
   def update
     @angler = current_angler
     @angler.update(angler_params)
@@ -25,14 +25,12 @@ class Public::AnglersController < ApplicationController
 
   def verification
   end
-  
+
   def destroy
-    @angler = Angler.find(params[:id]) 
-    @angler.destroy
-    flash[:notice] = 'ユーザーを削除しました。'
-    redirect_to :root
+    current_angler.destroy
+    redirect_to root_path
   end
-  
+
   def angler_params
       params.require(:angler).permit(:name, :introduction, :profile_image)
   end

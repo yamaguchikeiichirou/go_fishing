@@ -2,8 +2,12 @@ class FishingSuccess < ApplicationRecord
   belongs_to :angler
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :fishing_success_tags, dependent: :destroy
+  #has_many :fishing_success_tags, dependent: :destroy
   has_one_attached :image
+
+  validates :fishing_day, presence: true
+  validates :lng, presence: true
+  validates :lat, presence: true
 
   def favorited_by?(angler)
     favorites.exists?(angler_id: angler.id)

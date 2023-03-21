@@ -1,36 +1,89 @@
 <%= render 'public/header' %>
-
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "public/shared/error_messages", resource: resource %>
-  
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<main style="background-color: #F9F7ED;">
+  <div class="container mx-0">
+    <div class="row justify-content-center pt-4">
+      <div class="col-6 mt-4">
+        <div class="row rounded-top border-top border-right border-left border-dark pt-3" style="background-color: #FFF;">
+          <div class="col text-center fs-4">
+            新規会員登録
+          </div>
+        </div>
+        <div class="row border-bottom border-right border-left border-dark" style="background-color: #FFF; color: #FF0000;">
+          <div class="col ml-3">
+            ＊必須項目は必ずご記入ください。
+          </div>
+        </div>
+        <div class="row justify-content-left border-right border-left border-dark pt-3" style="background-color: #FFF;">
+          <div class="col-auto ml-5" style="background-color: #E6E6E6;">
+            会員の方はこちらからログイン
+          </div>
+        </div>
+        <div class="row border-right border-left border-dark" style="background-color: #FFF;">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= render "public/shared/error_messages", resource: resource %>
+            <div class="row justify-content-md-center px-4">
+              <table width="100%">
+                <tr>
+                  <th class="pt-3">
+                    ニックネーム<span class="text-danger fw-lighter">(必須)</span>
+                  </th>
+                  <td class="pt-3" width="50%"><%= f.text_field :name %></td>
+                </tr>
+                <tr>
+                  <th class="pt-3">
+                    メールアドレス<span class="text-danger fw-lighter">(必須)</span>
+                  </th>
+                  <td class="pt-3"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                </tr>
+                <tr>
+                  <th class="pt-3">
+                    パスワード
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> 文字以上)</em>
+                    <% end %>
+                    <span class="text-danger fw-lighter">(必須)</span>
+                  </th>
+                  <td class="pt-3"><%= f.password_field :password, autocomplete: "current-password" %></td>
+                </tr>
+                <tr>
+                  <th class="pt-3">
+                    パスワード確認<span class="text-danger fw-lighter">(必須)</span>
+                  </th>
+                  <td class="pt-3"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+                </tr>
+                <tr>
+                  <th class="pt-3">プロフィール画像</th>
+                  <td class="pt-3"><%= f.file_field :profile_image, accept: "image/*" %></td>
+                </tr>
+                <tr>
+                  <th class="pt-3">自己紹介</th>
+                  <td class="pt-3"><%= f.text_area :introduction %></td>
+                </tr>
+              </table>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-auto my-3">
+                <%= f.submit '新規登録', class: "btn btn-lg px-4", style: "background-color: #1BA1E2; color: #FFF;" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="row justify-content-left border-right border-left border-dark pt-2" style="background-color: #FFF;">
+          <div class="col-auto ml-5" style="background-color: #E6E6E6;">
+            すでに登録済みの方
+          </div>
+        </div>
+        <div class="row border-right border-left border-bottom border-dark py-2 mb-1" style="background-color: #FFF;">
+          <div class="col text-center">
+            <%= render "public/shared/links" %>
+          </div>
+        </div>
+        <div class="row justify-content-center mb-5">
+          <div class="col-auto my-5">
+            <%= link_to 'ゲストログイン', public_guest_sign_in_path, method: :post, class: "btn btn-lg px-4", style: "background-color: #60A917; color: #FFF;" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "public/shared/links" %>
+</main>
