@@ -3,7 +3,8 @@
   <div class="container mx-0">
     <div class="row">
       <div class="col-2 border-right border-dark" style="background-color: #F5F5F5;">
-        <div class="row justify-content-md-center border-bottom border-dark">地域から探す</div>
+        <div class="row justify-content-md-center">
+        </div>
         <div></div>
       </div>
       <div class="col-4 my-5 mx-3 py-2 rounded border border-dark" style="background-color: #F5F5F5;">
@@ -31,9 +32,26 @@
             <%= f.label :fishing_day, '釣行日' %></br>
             <%= f.datetime_field :fishing_day %>
           </div>
+          <div class="check_box">
+            <span>釣果（魚種）選択</span></br>
+            <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
+              <%= tag.label do %>
+                <%= tag.check_box %>
+                <%= tag.text %>
+              <% end %>
+            <% end %>
+          </div>
           <div class="form-group">
-            <%= f.label :species, '釣果（魚種）' %></br>
-            <%= f.text_field :species %>
+            <%= f.label :tackle, 'タックル' %></br>
+            <%= f.text_field :tackle %>
+          </div>
+          <div class="form-group">
+            <%= f.label :method, '釣り方' %></br>
+            <%= f.text_field :method %>
+          </div>
+          <div class="form-group">
+            <%= f.label :fishing_spot, '都道府県' %></br>
+            <%= f.select :prefecture, FishingSuccess.fishing_spots.keys, {} %>
           </div>
           <div class="form-group">
             <%= f.label :lat, '緯度' %></br>

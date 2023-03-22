@@ -1,6 +1,7 @@
 class Public::FishingSuccessesController < ApplicationController
   before_action :authenticate_angler!
   def index
+    @fishing_successes = params[:tag_id].present? ? Tag.find(params[:tag_id]).fishing_successes : FishingSuccess.all
   end
 
   def search
@@ -32,7 +33,7 @@ class Public::FishingSuccessesController < ApplicationController
   end
 
   def fishing_success_params
-      params.require(:fishing_success).permit(:angler_id, :fishing_day, :species, :tackle, :method, :place, :lng, :lat, :situation ,:image)
+      params.require(:fishing_success).permit(:angler_id, :fishing_day, :tackle, :method, :fishing_spot, :lng, :lat, :situation ,:image, tag_ids: [])
   end
 
 end

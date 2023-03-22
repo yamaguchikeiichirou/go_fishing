@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2023_03_14_052341) do
 
   create_table "fishing_success_tags", force: :cascade do |t|
     t.integer "tag_id"
-    t.integer "fishing_successes_id"
+    t.integer "fishing_success_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -91,10 +91,9 @@ ActiveRecord::Schema.define(version: 2023_03_14_052341) do
   create_table "fishing_successes", force: :cascade do |t|
     t.integer "angler_id"
     t.datetime "fishing_day", null: false
-    t.string "species"
     t.string "tackle"
     t.string "method"
-    t.string "place"
+    t.integer "fishing_spot", default: 0, null: false
     t.float "lng", null: false
     t.float "lat", null: false
     t.text "situation"

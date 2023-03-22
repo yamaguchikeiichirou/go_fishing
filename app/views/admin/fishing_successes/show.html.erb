@@ -70,7 +70,9 @@
             <table width="100%">
               <tr class="border-bottom border-dark">
                 <th>釣果</th>
-                <td><%= @fishing_success.species %></td>
+                  <% @fishing_success.tags.each do |tag| %>
+                    %= tag.name %>
+                  <% end %>
               </tr>
               <tr class="border-bottom border-dark">
                 <th class="pt-3">タックル</th>
