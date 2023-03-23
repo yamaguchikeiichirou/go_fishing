@@ -28,23 +28,8 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                  <li class="pr-3">
-                    <%= link_to new_fishing_success_path,class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
-                      釣果投稿
-                    <% end %>
-                  </li>
-                  <li class="pr-3 pl-3">
-                    <%= link_to anglers_mypage_path,class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
-                      マイページ
-                    <% end %>
-                  </li>
-                  <li class="pr-3 pl-3">
-                    <%= link_to anglers_favorites_path,class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
-                      お気に入り
-                    <% end %>
-                  </li>
                   <li class="pl-3">
-                    <%= link_to destroy_angler_session_path, method: :delete,class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
+                    <%= link_to destroy_angler_session_path, method: :delete, class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
                       ログアウト
                     <% end %>
                   </li>

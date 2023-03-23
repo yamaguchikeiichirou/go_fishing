@@ -6,11 +6,11 @@ class Public::AnglersController < ApplicationController
 
   def my_favorite
     favorites = Favorite.where(angler_id: current_angler.id).pluck(:fishing_success_id)
-    @favorites_list = FishingSuccess.find(favorites)
+    @fishing_successes = FishingSuccess.find(favorites)
   end
 
   def my_post
-    @my_posts = current_angler.fishing_successes
+    @fishing_successes = current_angler.fishing_successes.page(params[:page]).order(created_at: :desc)
   end
 
   def edit

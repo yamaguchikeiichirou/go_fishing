@@ -2,10 +2,7 @@
 <main style="background-color: #F9F7ED;">
   <div class="container mx-0">
     <div class="row">
-      <div class="col-2 border-bottom border-right border-dark" style="background-color: #F5F5F5;">
-        <div class="row justify-content-center border-bottom border-dark">地域から探す</div>
-        <div></div>
-      </div>
+      <%= render 'public/link' %>
       <div class="col-1"></div>
       <div class="col-8">
         <div class="row justify-content-center my-3">
@@ -129,9 +126,9 @@
           </div>
         </div>
         <div class="row text-right border-right border-left border-dark px-2" style="background-color: #F5F5F5;">
-          <%= link_to fishing_successes_path, style: "color: #FFAE00" do %>
+          <%= link_to fishing_successes_path(fishing_spot: @fishing_success.fishing_spot), style: "color: #FFAE00" do %>
             <i class="fas fa-map-marker-alt"></i>
-            〇〇県での釣果情報！
+            <%= @fishing_success.fishing_spot %>での釣果情報！
           <% end %>
         </div>
         <div class="row border-right border-left border-dark pt-3 px-2" style="background-color: #F5F5F5;">

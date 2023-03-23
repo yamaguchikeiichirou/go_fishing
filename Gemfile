@@ -60,3 +60,7 @@ gem 'devise'
 gem 'dotenv-rails'
 
 gem 'rails-i18n'
+
+gem "enum_help"
+
+gem 'kaminari','~> 1.2.1'
