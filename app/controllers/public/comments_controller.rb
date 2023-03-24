@@ -9,8 +9,6 @@ class Public::CommentsController < ApplicationController
     redirect_to fishing_success_path(fishing_success)
   end
 
-  def destroy
-  end
 
   def comment_params
       params.require(:comment).permit(:angler_id, :fishing_success_id, :content)

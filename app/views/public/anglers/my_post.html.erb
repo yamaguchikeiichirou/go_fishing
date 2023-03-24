@@ -67,11 +67,16 @@
                   </div>
                 </div>
               </div>
-              <div class="row text-right border-right rounded-bottom border-left border-bottom border-dark px-2" style="background-color: #F5F5F5;">
-                <%= link_to fishing_successes_path(fishing_spot: fishing_success.fishing_spot), style: "color: #FFAE00" do %>
-                  <i class="fas fa-map-marker-alt"></i>
-                  <%= fishing_success.fishing_spot %>での釣果情報！
-                <% end %>
+              <div class="row border-right rounded-bottom border-left border-bottom border-dark py-2" style="background-color: #F5F5F5;">
+                <div class="col">
+                  <%= link_to fishing_successes_path(fishing_spot: fishing_success.fishing_spot), style: "color: #FFAE00" do %>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <%= fishing_success.fishing_spot %>での釣果
+                  <% end %>
+                </div>
+                <div class="col-auto">
+                  <%= link_to "削除",fishing_success_path(fishing_success), method: :delete, class: "btn btn-danger btn-sm" %>
+                </div>
               </div>
             </div>
           <% end %>

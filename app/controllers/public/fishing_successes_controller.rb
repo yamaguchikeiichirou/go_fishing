@@ -36,6 +36,8 @@ class Public::FishingSuccessesController < ApplicationController
   end
 
   def destroy
+    FishingSuccess.find(params[:id]).destroy
+    redirect_to anglers_fishing_successes_path
   end
 
   def fishing_success_params
