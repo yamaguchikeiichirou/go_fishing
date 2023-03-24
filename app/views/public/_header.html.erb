@@ -4,7 +4,7 @@
           <div class="container-fluid">
             <div clas="col-auto bg-light border">
               <%= link_to root_path, class: "navbar-brand" do %>
-                <%= image_tag src="rogo3.jpg", size: "200x150" %>
+                <%= image_tag src="rogo5.jpg", size: "200x80" %>
               <% end %>
             </div>
             <div clas="col">
@@ -29,7 +29,7 @@
               <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                   <li class="pl-3">
-                    <%= link_to destroy_angler_session_path, method: :delete, class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
+                    <%= link_to destroy_angler_session_path, method: :delete, class: "btn btn-secondary" do %>
                       ログアウト
                     <% end %>
                   </li>
@@ -52,12 +52,12 @@
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
                 <li class="pr-3 pl-3">
-                  <%= link_to new_angler_registration_path,class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
+                  <%= link_to new_angler_registration_path, class: "btn btn-secondary" do %>
                     新規登録
                   <% end %>
                 </li>
                 <li class="pl-3">
-                  <%= link_to new_angler_session_path,class: "nav-link text-dark rounded border border-danger", style: "background-color: #FA6800;" do %>
+                  <%= link_to new_angler_session_path, class: "btn btn-secondary" do %>
                     ログイン
                   <% end %>
                 </li>

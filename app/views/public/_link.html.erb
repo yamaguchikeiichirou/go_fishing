@@ -1,4 +1,4 @@
-<div class="col-2 border-right border-dark" style="background-color: #F5F5F5;">
+<div class="col-2 border-right border-bottom border-dark" style="background-color: #F5F5F5;">
   <div class="row justify-content-md-center py-3">
     <%= form_with url: fishing_successes_path, method: :get, class: 'boards__searchForm' do %>
       <div class="col-auto">
@@ -23,7 +23,7 @@
     <% end %>
   </div>
   <div class="row justify-content-md-center py-3">
-      <div class="col-auto">
+      <div class="col">
         <%= link_to root_path, class: "btn btn-warning" do %>
           投稿一覧
         <% end %>
@@ -47,6 +47,13 @@
       <div class="col-auto">
         <%= link_to anglers_favorites_path, class: "btn btn-warning" do %>
           お気に入り
+        <% end %>
+      </div>
+  </div>
+  <div class="row justify-content-md-center py-3">
+      <div class="col-auto">
+        <%= link_to anglers_fishing_successes_path, class: "btn btn-warning" do %>
+          投稿履歴
         <% end %>
       </div>
   </div>

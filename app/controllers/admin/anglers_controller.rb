@@ -1,7 +1,7 @@
 class Admin::AnglersController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @anglers = Angler.all
+    @anglers = Angler.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show

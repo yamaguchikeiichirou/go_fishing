@@ -14,9 +14,9 @@
             ＊投稿画像をクリックすると釣果詳細が見られます＊
           </div>
         </div>
-        <div class="row ml-5">
+        <div class="row ml-5 pl-5">
           <% @fishing_successes.each do |fishing_success| %>
-            <div class="col-3 mx-3 my-2">
+            <div class="col-3 ml-5 my-2">
               <%= link_to fishing_success_path(fishing_success), class: "link" do %>
                 <div class="row justify-content-center rounded-top border border-dark link" style="background-color: #F5F5F5;">
                   <div class="col text-center my-2">

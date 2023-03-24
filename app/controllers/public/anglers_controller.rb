@@ -7,6 +7,7 @@ class Public::AnglersController < ApplicationController
   def my_favorite
     favorites = Favorite.where(angler_id: current_angler.id).pluck(:fishing_success_id)
     @fishing_successes = FishingSuccess.find(favorites)
+    @fishing_successes = Kaminari.paginate_array(@fishing_successes).page(params[:page])
   end
 
   def my_post

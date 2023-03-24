@@ -45,17 +45,17 @@
         </div>
         <div class="row border-right border-left border-bottom border-dark pt-3 mb-4" style="background-color: #BAC8D3;">
           <div class="col-4 my-4 py-3 text-center border-bottom border-top border-dark" style="background-color: #FFF;">
-            <%= link_to new_fishing_success_path, data: {"turbolinks" => false}, style: "color: #808080;" do %>
+            <%= link_to new_fishing_success_path, data: {"turbolinks" => false}, class: "link", style: "color: #808080;" do %>
               釣果投稿
             <% end %>
           </div>
           <div class="col-4 my-4 py-3 text-center border border-dark" style="background-color: #FFF;">
-            <%= link_to anglers_fishing_successes_path, style: "color: #808080;" do %>
+            <%= link_to anglers_fishing_successes_path, class: "link", style: "color: #808080;" do %>
               投稿履歴
             <% end %>
           </div>
           <div class="col-4 my-4 py-3 text-center border-bottom border-top border-dark" style="background-color: #FFF;">
-            <%= link_to anglers_favorites_path, style: "color: #808080;" do %>
+            <%= link_to anglers_favorites_path, class: "link", style: "color: #808080;" do %>
               お気に入り
             <% end %>
           </div>

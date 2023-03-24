@@ -1,7 +1,7 @@
 class Admin::FishingSuccessesController < ApplicationController
   before_action :authenticate_admin!
   def index
-    @fishing_successes = FishingSuccess.all
+    @fishing_successes = FishingSuccess.page(params[:page]).per(10).order(created_at: :desc)
   end
 
   def show

@@ -70,9 +70,11 @@
             <table width="100%">
               <tr class="border-bottom border-dark">
                 <th>釣果</th>
+                <td class="pt-3">
                   <% @fishing_success.tags.each do |tag| %>
-                    %= tag.name %>
+                    <%= tag.name %>
                   <% end %>
+                </td>
               </tr>
               <tr class="border-bottom border-dark">
                 <th class="pt-3">タックル</th>
@@ -86,14 +88,14 @@
           </div>
           <div class="col">
             <div class="row px-3">
-              <div class="col bg-white rounded border border-dark" style="height: 80px;">
-                <%= @fishing_success.situation %>
-              </div>
-            </div>
-            <div class="row px-3">
               <div class="col">
                 <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
                 <%= @fishing_success.angler.name %>からの情報！
+              </div>
+            </div>
+            <div class="row px-3">
+              <div class="col bg-white rounded border border-dark" style="height: 80px;">
+                <%= @fishing_success.situation %>
               </div>
             </div>
           </div>

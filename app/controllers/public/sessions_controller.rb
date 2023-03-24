@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     angler = Angler.guest
     sign_in angler
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path
   end
 
   # before_action :configure_sign_in_params, only: [:create]

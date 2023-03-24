@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   devise_scope :angler do
     post 'public/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
+  
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"

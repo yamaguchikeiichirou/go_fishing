@@ -5,8 +5,8 @@
       <%= render 'public/link' %>
       <div class="col">
         <div class="row justify-content-center my-3">
-          <div class="col-auto rounded-circle border border-dark text-white text-center py-2 px-3 fs-4" style="background-color: #6D8764;">
-            これまでの釣果
+          <div class="col text-center fs-3 fw-bold" style="color: #FFAE00;">
+            投稿履歴
           </div>
         </div>
         <div class="row justify-content-center my-3">
@@ -14,9 +14,9 @@
             ＊投稿画像をクリックすると釣果詳細が見られます＊
           </div>
         </div>
-        <div class="row ml-5">
+        <div class="row ml-5 pl-5">
           <% @fishing_successes.each do |fishing_success| %>
-            <div class="col-3 mx-3 my-2">
+            <div class="col-3 ml-5 my-2">
               <%= link_to fishing_success_path(fishing_success), class: "link" do %>
                 <div class="row justify-content-center rounded-top border border-dark link" style="background-color: #F5F5F5;">
                   <div class="col text-center my-2">
@@ -68,9 +68,9 @@
                 </div>
               </div>
               <div class="row text-right border-right rounded-bottom border-left border-bottom border-dark px-2" style="background-color: #F5F5F5;">
-                <%= link_to fishing_successes_path, style: "color: #FFAE00" do %>
+                <%= link_to fishing_successes_path(fishing_spot: fishing_success.fishing_spot), style: "color: #FFAE00" do %>
                   <i class="fas fa-map-marker-alt"></i>
-                  〇〇県での釣果情報！
+                  <%= fishing_success.fishing_spot %>での釣果情報！
                 <% end %>
               </div>
             </div>

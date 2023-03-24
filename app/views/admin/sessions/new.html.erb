@@ -1,26 +1,36 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<%= render 'admin/header' %>
+<main>
+  <div class="container mx-0">
+    <div class="row justify-content-center pt-5">
+      <div class="col-6 mt-5 pt-5">
+        <div class="row rounded-top border border-dark" style="background-color: #FFF;">
+          <div class="col text-center fs-4">
+            管理者ログイン
+          </div>
+        </div>
+        <div class="row rounded-bottom border-right border-left border-bottom border-dark mb-5" style="background-color: #FFF;">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="row justify-content-md-center px-4">
+              <table width="100%">
+                <tr>
+                  <th class="pt-5">メールアドレス</th>
+                  <td class="pt-5"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                </tr>
+                <tr>
+                  <th class="pt-5">パスワード</th>
+                  <td class="pt-5"><%= f.password_field :password, autocomplete: "current-password" %></td>
+                </tr>
+              </table>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-auto my-4">
+                <%= f.submit 'ログイン', class: "btn btn-lg px-4", style: "background-color: #1BA1E2; color: #FFF;" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
+</main>
 
-<%= render "admin/shared/links" %>
