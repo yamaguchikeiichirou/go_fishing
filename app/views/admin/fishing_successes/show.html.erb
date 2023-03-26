@@ -89,12 +89,11 @@
           <div class="col">
             <div class="row px-3">
               <div class="col">
-                <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
-                <%= @fishing_success.angler.name %>からの情報！
+                投稿者からの情報！
               </div>
             </div>
             <div class="row px-3">
-              <div class="col bg-white rounded border border-dark" style="height: 80px;">
+              <div class="col bg-white rounded border border-dark scr" style="height: 80px;">
                 <%= @fishing_success.situation %>
               </div>
             </div>
@@ -102,7 +101,7 @@
         </div>
         <div class="row rounded-bottom border-right border-left border-bottom border-dark py-3 mb-3" style="background-color: #F5F5F5;">
           <div class="col text-center">
-            <%= link_to "投稿を削除",admin_fishing_success_path(@fishing_success), method: :delete, class: "btn btn-danger btn-sm fs-5" %>
+            <%= link_to "投稿を削除",admin_fishing_success_path(@fishing_success), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm fs-5" %>
           </div>
         </div>
       </div>

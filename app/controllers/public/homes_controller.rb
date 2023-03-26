@@ -1,6 +1,6 @@
 class Public::HomesController < ApplicationController
-  before_action :authenticate_angler!
+  before_action :authenticate_angler!, except: [:top]
   def top
-    @fishing_successes = FishingSuccess.page(params[:page]).order(created_at: :desc)
+    @fishing_successes = FishingSuccess.order(created_at: :desc).limit(3)
   end
 end

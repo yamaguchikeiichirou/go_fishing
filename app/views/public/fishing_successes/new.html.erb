@@ -21,6 +21,7 @@
             </div>
           <% end %>
           <div class="form-group">
+            <span class="text-danger fw-lighter">(必須)</span>
             <%= f.label :image, '写真' %>
             <%= f.file_field :image, accept: 'image/*' %>
           </div>
@@ -29,7 +30,7 @@
             <%= f.datetime_field :fishing_day %>
           </div>
           <div class="check_box">
-            <span>釣果（魚種）選択</span></br>
+            <span class="text-danger fw-lighter">(必須)</span><span>釣果（魚種）選択</span></br>
             <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :name) do |tag| %>
               <%= tag.label do %>
                 <%= tag.check_box %>

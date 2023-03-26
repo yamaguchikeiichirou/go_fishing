@@ -20,8 +20,11 @@ class Public::AnglersController < ApplicationController
 
   def update
     @angler = current_angler
-    @angler.update(angler_params)
-    redirect_to anglers_mypage_path
+    if @angler.update(angler_params)
+      redirect_to anglers_mypage_path
+    else
+      render :edit
+    end
   end
 
   def verification

@@ -57,13 +57,15 @@
               </div>
               <div class="row border-right border-left border-dark px-3" style="background-color: #F5F5F5;">
                 <div class="col">
-                  <div class="row px-3">
-                    <div class="col bg-white rounded border border-dark" style="height: 80px;">
-                      <%= fishing_success.situation %>
+                  <div class="row">
+                    <div class="col">
+                      投稿者からの情報！
                     </div>
                   </div>
                   <div class="row px-3">
-                    <%= fishing_success.angler.name %>からの情報！
+                    <div class="col bg-white rounded border border-dark scr scr">
+                      <%= fishing_success.situation %>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -75,7 +77,7 @@
                   <% end %>
                 </div>
                 <div class="col-auto">
-                  <%= link_to "削除",fishing_success_path(fishing_success), method: :delete, class: "btn btn-danger btn-sm" %>
+                  <%= link_to "削除",fishing_success_path(fishing_success), class: "btn btn-secondary btn-sm" %>
                 </div>
               </div>
             </div>

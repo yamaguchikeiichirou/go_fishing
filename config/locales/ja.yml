@@ -1,10 +1,28 @@
 ja:
   activerecord:
     models:
-      fishing_success:           
+      fishing_success:
+      angler:
     attributes:
-      fishing_success:          
+      fishing_success:
         fishing_day: 釣行日
-        place: 釣れた場所
         lng: 経度
         lat: 緯度
+        tag_ids: 釣果(魚種)
+        image: 写真
+      angler:
+        name: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+    errors:
+      models:
+        fishing_success:
+          attributes:
+            fishing_day:
+              blank: を選択してください
+            tag_ids:
+              blank: を選択してください
+            image:
+              blank: を選択してください
+        

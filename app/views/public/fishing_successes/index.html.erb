@@ -6,7 +6,7 @@
       <div class="col">
         <div class="row justify-content-center my-3">
           <div class="col text-center fs-3 fw-bold" style="color: #FFAE00;">
-            検索結果
+            投稿一覧
           </div>
         </div>
         <div class="row justify-content-center my-3">
@@ -57,13 +57,15 @@
               </div>
               <div class="row border-right border-left border-dark px-3" style="background-color: #F5F5F5;">
                 <div class="col">
-                  <div class="row px-3">
-                    <div class="col bg-white rounded border border-dark" style="height: 80px;">
-                      <%= fishing_success.situation %>
+                  <div class="row">
+                    <div class="col">
+                      投稿者からの情報！
                     </div>
                   </div>
                   <div class="row px-3">
-                    <%= fishing_success.angler.name %>からの情報！
+                    <div class="col bg-white rounded border border-dark scr" style="height: 80px;">
+                      <%= fishing_success.situation %>
+                    </div>
                   </div>
                 </div>
               </div>

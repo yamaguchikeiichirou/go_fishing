@@ -5,10 +5,15 @@ class FishingSuccess < ApplicationRecord
   has_many :fishing_success_tags, dependent: :destroy
   has_many :tags, through: :fishing_success_tags
   has_one_attached :image
-
+  
+  validates :image, presence: true
   validates :fishing_day, presence: true
+  validates :tag_ids, presence: true
   validates :lng, presence: true
   validates :lat, presence: true
+  
+  
+  
 
   def favorited_by?(angler)
     favorites.exists?(angler_id: angler.id)

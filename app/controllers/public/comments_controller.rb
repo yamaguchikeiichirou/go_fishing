@@ -6,9 +6,13 @@ class Public::CommentsController < ApplicationController
     comment = current_angler.comments.new(comment_params)
     comment.fishing_success_id = fishing_success.id
     comment.save
-    redirect_to fishing_success_path(fishing_success)
+    redirect_to request.referer
   end
-
+  
+  def destroy
+    Comment.find_by(id: params[:id],fishing_success_id: params[:fishing_success_id]).destroy
+    redirect_to request.referer
+  end
 
   def comment_params
       params.require(:comment).permit(:angler_id, :fishing_success_id, :content)

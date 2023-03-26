@@ -1,7 +1,7 @@
 <%= render 'admin/header' %>
 <main>
   <div class="container">
-    <div class="row justify-content-center my-3">
+    <div class="row justify-content-center my-5">
       <div class="col text-center fs-4">
         会員詳細
       </div>
@@ -24,19 +24,9 @@
             </div>
           </div>
         </div>
-        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
-          <div class="col mx-5 mt-4">
-            自己紹介文
-          </div>
-        </div>
-        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
-          <div class="col bg-white rounded border border-dark mx-5 mb-3" style="height: 100px;">
-            <%= @angler.introduction %>
-          </div>
-        </div>
         <div class="row border-bottom border-right border-left border-dark pb-4" style="background-color: #BAC8D3;">
           <div class="col text-center">
-            <%= link_to "削除",admin_angler_path(@angler), method: :delete , class: "btn btn-danger btn-sm fs-5" %>
+            <%= link_to "削除",admin_angler_path(@angler), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm fs-5" %>
           </div>
         </div>
       </div>

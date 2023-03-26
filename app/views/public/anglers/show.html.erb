@@ -1,5 +1,5 @@
 <%= render 'public/header' %>
-<main style="background-color: #F9F7ED;">
+<main style="background-color: #F9F7ED; height: 1000px;">
   <div class="container mx-0">
     <div class="row">
       <%= render 'public/link' %>
@@ -26,16 +26,6 @@
             <div class="row py-2">
               <%= @angler.email %>
             </div>
-          </div>
-        </div>
-        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
-          <div class="col mx-5 mt-4">
-            自己紹介文
-          </div>
-        </div>
-        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
-          <div class="col bg-white rounded border border-dark mx-5 mb-3" style="height: 100px;">
-            <%= @angler.introduction %>
           </div>
         </div>
         <div class="row border-right border-left border-dark px-3" style="background-color: #BAC8D3;">

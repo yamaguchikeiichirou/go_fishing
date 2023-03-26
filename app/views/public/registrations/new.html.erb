@@ -20,7 +20,15 @@
         </div>
         <div class="row border-right border-left border-dark" style="background-color: #FFF;">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-            <%= render "public/shared/error_messages", resource: resource %>
+            <% if @angler.errors.any? %>
+            <div>
+              <ul style="color: red">
+                <% @angler.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
             <div class="row justify-content-md-center px-4">
               <table width="100%">
                 <tr>
@@ -54,10 +62,6 @@
                 <tr>
                   <th class="pt-3">プロフィール画像</th>
                   <td class="pt-3"><%= f.file_field :profile_image, accept: "image/*" %></td>
-                </tr>
-                <tr>
-                  <th class="pt-3">自己紹介</th>
-                  <td class="pt-3"><%= f.text_area :introduction %></td>
                 </tr>
               </table>
             </div>

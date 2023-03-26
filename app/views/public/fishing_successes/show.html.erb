@@ -11,9 +11,15 @@
           </div>
         </div>
         <div class="row justify-content-center rounded-top border border-dark" style="background-color: #F5F5F5;">
+          <div class="col-1"></div>
           <div class="col text-center my-2">
             <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
             <%= @fishing_success.angler.name %>
+          </div>
+          <div class="col-1 text-right my-2">
+            <% if @fishing_success.angler == current_angler %>
+              <%= link_to "削除",fishing_success_path(@fishing_success), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-danger btn-sm" %>
+            <% end %>
           </div>
         </div>
         <div class="row border-right border-left border-dark" style="background-color: #F5F5F5;">
@@ -108,13 +114,11 @@
           </div>
           <div class="col">
             <div class="row px-3 mt-4">
-              <div class="col">
-                <%= image_tag @fishing_success.angler.get_profile_image(30,30), class: "rounded-circle" %>
-                <%= @fishing_success.angler.name %>からの情報！
+              <div class="col">投稿者からの情報！
               </div>
             </div>
             <div class="row px-3">
-              <div class="col bg-white rounded border border-dark" style="height: 80px;">
+              <div class="col bg-white rounded border border-dark scr" style="height: 80px;">
                 <%= @fishing_success.situation %>
               </div>
             </div>
@@ -151,11 +155,16 @@
               <%= image_tag comment.angler.get_profile_image(30,30), class: "rounded-circle" %>
               <%= comment.angler.name %>
             </div>
-            <div class="col-7 mb-3">
-              <%= comment.content %>
+            <div class="col-6 mb-3">
+              <%= truncate(comment.content, :length => 20) %>
             </div>
-            <div class="col-2 mb-3" style="color: #999999;">
+            <div class="col-auto mb-3" style="color: #999999;">
               <%= comment.created_at.strftime('%m月%d日') %>
+            </div>
+            <div class="col-auto mb-3">
+              <% if comment.angler == current_angler %>
+                <%= link_to "取り消し",fishing_success_comment_path(comment.fishing_success.id,comment.id), method: :delete, class: "btn btn-sm" %>
+              <% end %>
             </div>
           <% end %>
         </div>

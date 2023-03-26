@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get 'search'=>'fishing_successes#search'
     resources :fishing_successes, only: [:index, :show, :new, :create, :destroy] do
       resource :favorites, only: [:create, :destroy]
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
     end
     get 'anglers/favorites'=>'anglers#my_favorite'
     get 'anglers/fishing_successes'=>'anglers#my_post'
