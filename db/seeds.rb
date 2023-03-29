@@ -5,28 +5,28 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-#Admin.create!(
-   #email: 'aa@aa.com',
-   #password: 'aaaaaa'
-#)
+Admin.create!(
+   email: 'aa@aa.com',
+   password: 'aaaaaa'
+)
 
-#Tag.create([
-  #{ name: 'アジ' },
-  #{ name: 'サバ'},
-  #{ name: 'イワシ'},
-  #{ name: 'カサゴ' },
-  #{ name: 'メバル'},
-  #{ name: 'アコウ（キジハタ）'},
-  #{ name: 'ヒラメ'},
-  #{ name: 'カレイ'},
-  #{ name: 'キス'},
-  #{ name: 'ハゼ'},
-  #{ name: 'サヨリ'},
-  #{ name: 'カマス'},
-  #{ name: 'スズキ'},
-  #{ name: 'タチウオ'},
-  #{ name: '青物'},
-  #{ name: 'イカ'},
-  #{ name: 'タコ'},
-  #{ name: 'その他'}
-#])
+Tag.create([
+  { name: 'アジ' },
+  { name: 'サバ'},
+  { name: 'イワシ'},
+  { name: 'カサゴ' },
+  { name: 'メバル'},
+  { name: 'アコウ（キジハタ）'},
+  { name: 'ヒラメ'},
+  { name: 'カレイ'},
+  { name: 'キス'},
+  { name: 'ハゼ'},
+  { name: 'サヨリ'},
+  { name: 'カマス'},
+  { name: 'スズキ'},
+  { name: 'タチウオ'},
+  { name: '青物'},
+  { name: 'イカ'},
+  { name: 'タコ'},
+  { name: 'その他'}
+])
