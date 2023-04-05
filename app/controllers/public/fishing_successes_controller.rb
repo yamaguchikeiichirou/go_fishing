@@ -1,5 +1,7 @@
 class Public::FishingSuccessesController < ApplicationController
   before_action :authenticate_angler!
+  before_action :ensure_angler, only: [:destroy]
+  
   def index
     if params[:tag_id].present?
       @fishing_successes = Tag.find(params[:tag_id]).fishing_successes.page(params[:page]).order(created_at: :desc)
@@ -38,6 +40,12 @@ class Public::FishingSuccessesController < ApplicationController
   def destroy
     FishingSuccess.find(params[:id]).destroy
     redirect_to anglers_fishing_successes_path
+  end
+  
+  def ensure_angler
+    @fishing_successes = current_angler.fishing_successes
+    @fishing_success = @fishing_successes.find_by(id: params[:id])
+    redirect_to request.referer unless @fishing_success
   end
 
   def fishing_success_params

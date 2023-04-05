@@ -6,6 +6,7 @@ ja:
     attributes:
       fishing_success:
         fishing_day: 釣行日
+        fishing_spot: 都道府県
         lng: 経度
         lat: 緯度
         tag_ids: 釣果(魚種)
@@ -20,6 +21,8 @@ ja:
         fishing_success:
           attributes:
             fishing_day:
+              blank: を選択してください
+            fishing_spot:
               blank: を選択してください
             tag_ids:
               blank: を選択してください

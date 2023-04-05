@@ -1,0 +1,28 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h3>タグ追加</h3>
+      </div>
+    </div>
+    <div class="row">
+      <%= form_with model: @tag, local: true, url: admin_tags_path, method: :post do |f| %>
+        <%= f.text_field :name %>
+        <%= f.submit "追加" %>
+      <% end %>
+    </div>
+    <div class="row">
+      <% @tags.each do |tag| %>
+        <div class="col-4 my-2">
+          <div class="row">
+            <div class="col-auto">
+              <%= link_to "削除",admin_tag_path(tag), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %>
+            </div>
+            <div class="col-2"><%= tag.id %></div>
+            <div class="col"><%= tag.name %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

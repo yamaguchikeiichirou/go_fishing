@@ -1,24 +1,27 @@
 <div class="col-2 border-right border-bottom border-dark" style="background-color: #F5F5F5;">
-  <div class="row justify-content-md-center py-3">
-    <%= form_with url: fishing_successes_path, method: :get, class: 'boards__searchForm' do %>
-      <div class="col-auto">
+  <div class="row justify-content-md-center py-3 box">
+    <%= form_with url: fishing_successes_path, method: :get do |f| %>
+      <div class="col">
         魚種から探す
-        <%= select_tag :tag_id,
-                        options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-                        {
-                          prompt: '魚種選択',
-                          class: 'form-control boards__select btn btn-warning',
-                          onchange: 'submit(this.form);'
-                        }
-        %>
+      </div>
+      <div class="col mt-2">
+        <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]), {prompt: '---'} %>
+      </div>
+      <div class="col text-right mt-2">
+        <%= f.submit '検索' %>
       </div>
     <% end %>
   </div>
-  <div class="row justify-content-md-center py-3">
-    <%= form_with url: fishing_successes_path, method: :get, class: 'boards__searchForm' do |f| %>
-      <div class="col-auto">
+  <div class="row justify-content-md-center py-3 box">
+    <%= form_with url: fishing_successes_path, method: :get do |f| %>
+      <div class="col">
         都道府県から探す
-        <%= f.select :fishing_spot, FishingSuccess.fishing_spots.keys, {},class: 'form-control boards__select btn btn-warning',onchange: 'submit(this.form);' %>
+      </div>
+      <div class="col mt-2">
+        <%= f.select :fishing_spot, FishingSuccess.fishing_spots.keys.map {|k| [k, k]}, {include_blank: "---"}, {} %>
+      </div>
+      <div class="col text-right mt-2">
+        <%= f.submit '検索' %>
       </div>
     <% end %>
   </div>
@@ -46,7 +49,7 @@
   <div class="row justify-content-md-center py-3">
       <div class="col mx-3">
         <%= link_to anglers_favorites_path, class: "btn btn-warning btn-block" do %>
-          お気に入り
+          いいね一覧
         <% end %>
       </div>
   </div>

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
 
 
+  namespace :admin do
+    get 'tags/new'
+  end
   devise_for :anglers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
     resources :fishing_successes, only: [:index, :show, :destroy]
     resources :anglers, only: [:index, :show, :destroy]
     resources :comments, only: [:destroy]
+    resources :tags, only: [:new, :create, :destroy]
   end
 
 

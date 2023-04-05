@@ -5,7 +5,7 @@ class CreateFishingSuccesses < ActiveRecord::Migration[6.1]
       t.datetime :fishing_day, null: false
       t.string :tackle
       t.string :method
-      t.integer :fishing_spot, null: false, default: 0
+      t.integer :fishing_spot, null: false
       t.float :lng, null: false
       t.float :lat, null: false
       t.text :situation
