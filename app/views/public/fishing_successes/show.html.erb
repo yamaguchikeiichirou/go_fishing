@@ -1,5 +1,5 @@
 <main style="background-color: #F9F7ED;">
-  <div class="container mx-0">
+  <div class="container-fluid">
     <div class="row">
       <%= render 'public/link' %>
       <div class="col-1"></div>
@@ -33,7 +33,7 @@
           <div class="col px-3">
             <div class="row">
               <div class="col">
-                <%= image_tag @fishing_success.get_image, :size =>'300x250' %>
+                <%= image_tag @fishing_success.get_image, class: "card-img-top" %>
               </div>
             </div>
             <div class="row">

@@ -1,68 +1,44 @@
-<main style="background-color: #F9F7ED;">
-  <div class="container mx-0">
+<main>
+  <div class="container-fluid">
     <div class="row justify-content-center pt-4">
-      <div class="col-6 mt-4">
-        <div class="row rounded-top border-top border-right border-left border-dark pt-3" style="background-color: #FFF;">
-          <div class="col text-center fs-4">
-            新規会員登録
-          </div>
+      <div class="col-10 col-md-4 mt-5">
+        <div class="row justify-content-center" style="color: #FF0000;">
+          ＊必須項目は必ずご記入ください
         </div>
-        <div class="row border-bottom border-right border-left border-dark" style="background-color: #FFF; color: #FF0000;">
-          <div class="col ml-3">
-            ＊必須項目は必ずご記入ください。
-          </div>
-        </div>
-        <div class="row justify-content-left border-right border-left border-dark pt-3" style="background-color: #FFF;">
-          <div class="col-auto ml-5" style="background-color: #E6E6E6;">
-            会員の方はこちらからログイン
-          </div>
-        </div>
-        <div class="row border-right border-left border-dark" style="background-color: #FFF;">
+        <div class="row rounded border border-dark" style="background-color: #FFF;">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <% if @angler.errors.any? %>
-            <div>
-              <ul style="color: red">
-                <% @angler.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
+              <div>
+                <ul style="color: red">
+                  <% @angler.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="form-group mx-md-5 mt-3">
+              <span class="text-danger fw-lighter">(必須)</span>ニックネーム</br>
+              <%= f.text_field :name, style: "width:100%" %>
             </div>
-          <% end %>
-            <div class="row justify-content-md-center px-4">
-              <table width="100%">
-                <tr>
-                  <th class="pt-3">
-                    ニックネーム<span class="text-danger fw-lighter">(必須)</span>
-                  </th>
-                  <td class="pt-3" width="50%"><%= f.text_field :name %></td>
-                </tr>
-                <tr>
-                  <th class="pt-3">
-                    メールアドレス<span class="text-danger fw-lighter">(必須)</span>
-                  </th>
-                  <td class="pt-3"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-                </tr>
-                <tr>
-                  <th class="pt-3">
-                    パスワード
-                    <% if @minimum_password_length %>
-                    <em>(<%= @minimum_password_length %> 文字以上)</em>
-                    <% end %>
-                    <span class="text-danger fw-lighter">(必須)</span>
-                  </th>
-                  <td class="pt-3"><%= f.password_field :password, autocomplete: "current-password" %></td>
-                </tr>
-                <tr>
-                  <th class="pt-3">
-                    パスワード確認<span class="text-danger fw-lighter">(必須)</span>
-                  </th>
-                  <td class="pt-3"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
-                </tr>
-                <tr>
-                  <th class="pt-3">プロフィール画像</th>
-                  <td class="pt-3"><%= f.file_field :profile_image, accept: "image/*" %></td>
-                </tr>
-              </table>
+            <div class="form-group mx-md-5 mt-3">
+              <span class="text-danger fw-lighter">(必須)</span>メールアドレス</br>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width:100%" %>
+            </div>
+            <div class="form-group mx-md-5 mt-3">
+              <span class="text-danger fw-lighter">(必須)</span>
+              パスワード
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> 文字以上)</em>
+              <% end %></br>
+              <%= f.password_field :password, autocomplete: "current-password", style: "width:100%" %>
+            </div>
+            <div class="form-group mx-md-5 mt-3">
+              <span class="text-danger fw-lighter">(必須)</span>パスワード確認</br>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", style: "width:100%" %>
+            </div>
+            <div class="form-group mx-md-5 mt-3">
+              プロフィール画像</br>
+              <%= f.file_field :profile_image, accept: "image/*", style: "width:100%" %>
             </div>
             <div class="row justify-content-center">
               <div class="col-auto my-3">
@@ -71,18 +47,18 @@
             </div>
           <% end %>
         </div>
-        <div class="row justify-content-left border-right border-left border-dark pt-2" style="background-color: #FFF;">
-          <div class="col-auto ml-5" style="background-color: #E6E6E6;">
+        <div class="row justify-content-left mt-2">
+          <div class="col-auto" style="background-color: #E6E6E6;">
             すでに登録済みの方
           </div>
         </div>
-        <div class="row border-right border-left border-bottom border-dark py-2 mb-1" style="background-color: #FFF;">
-          <div class="col text-center">
+        <div class="row justify-content-left" >
+          <div class="col-aut">
             <%= render "public/shared/links" %>
           </div>
         </div>
         <div class="row justify-content-center mb-5">
-          <div class="col-auto my-5">
+          <div class="col-auto my-3">
             <%= link_to 'ゲストログイン', public_guest_sign_in_path, method: :post, class: "btn btn-lg px-4", style: "background-color: #60A917; color: #FFF;" %>
           </div>
         </div>
