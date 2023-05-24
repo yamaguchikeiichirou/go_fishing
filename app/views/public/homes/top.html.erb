@@ -1,5 +1,5 @@
 <% if angler_signed_in? %>
-  <main class="px-0" style="background-color: #F9F7ED; height: 1000px;">
+  <main class="px-0">
     <div class="container-fluid">
       <div class="row">
         <%= render 'public/link' %>
@@ -25,7 +25,7 @@
     </div>
   </main>
 <% else %>
-  <main class="px-0" style="background-color: #F9F7ED; height: 1000px;">
+  <main class="px-0">
     <div class="container-fluid">
       <div class="row">
         <div class="col">
@@ -36,7 +36,8 @@
           </div>
           <div class="row justify-content-center my-3">
             <div class="col text-center fs-5 fw-bold">
-              釣果を投稿して最近釣れている魚の種類や、場所を共有しよう！
+              釣果を投稿して最近釣れている魚の</br>
+              種類や、場所を共有しよう！
             </div>
           </div>
           <div class="row justify-content-center my-3">
@@ -44,9 +45,9 @@
               ＊各機能を使うにはログインが必要です＊
             </div>
           </div>
-          <div class="row ml-5 pl-5">
+          <div class="row justify-content-evenly">
             <% @fishing_successes.each do |fishing_success| %>
-              <div class="col-3 ml-5 my-2">
+              <div class="col-10 col-md-3 pt-3">
                 <%= link_to fishing_success_path(fishing_success), class: "link" do %>
                   <div class="row rounded-top border border-dark link" style="background-color: #F5F5F5;">
                     <div class="col text-center my-2">

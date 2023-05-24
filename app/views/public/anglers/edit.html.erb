@@ -2,55 +2,58 @@
   <div class="container-fluid">
     <div class="row">
       <%= render 'public/link' %>
-      <div class="col-2"></div>
-      <div class="col-6">
+      <div class="col">
         <div class="row justify-content-center my-3">
-          <div class="col-auto rounded border border-dark text-white text-center fs-4" style="background-color: #647687;">
-            プロフィール編集
-          </div>
-        </div>
-        <div class="row border-right border-left border-top border-dark" style="background-color: #BAC8D3;">
-          <%= form_with model: @angler,url: anglers_information_path, method: :patch do |f| %>
-            <div class="row justify-content-md-center px-4">
-              <% if @angler.errors.any? %>
-                <div>
-                  <ul style="color: red">
-                    <% @angler.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                    <% end %>
-                  </ul>
-                </div>
-              <% end %>
-              <table width="100%">
-                <tr>
-                  <th class="pt-5">ニックネーム（１０文字以内）</th>
-                  <td class="pt-5"><%= f.text_field :name %></td>
-                </tr>
-                <tr>
-                  <th class="pt-5">メールアドレス</th>
-                  <td class="pt-5" style="color: #6600CC;"><%= current_angler.email %></td>
-                </tr>
-                <tr>
-                  <th class="pt-5">プロフィール画像</th>
-                  <td class="pt-5"><%= f.file_field :profile_image, accept: "image/*" %></td>
-                </tr>
-              </table>
-            </div>
-            <div class="row justify-content-center">
-              <div class="col-auto my-5">
-                <%= f.submit '変更', class: "btn btn-lg px-4",  style: "background-color: #6600CC; color: #FFF;" %>
+          <div class="col-10 col-md-6">
+            <div class="row justify-content-center my-3">
+              <div class="col-auto rounded border border-dark text-white text-center fs-4" style="background-color: #647687;">
+                プロフィール編集
               </div>
             </div>
-          <% end %>
-        </div>
-        <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
-          <div class="col text-center">
-            退会する方は下のボタンをクリックしたください。
-          </div>
-        </div>
-        <div class="row justify-content-center border-right border-left border-bottom border-dark pt-3 mb-4" style="background-color: #BAC8D3;">
-          <div class="col-auto">
-            <%= link_to "退会する", anglers_withdrawal_verification_path, class: "btn btn-secondary px-4 my-4" %>
+            <div class="row border-right border-left border-top border-dark" style="background-color: #BAC8D3;">
+              <%= form_with model: @angler,url: anglers_information_path, method: :patch do |f| %>
+                <div class="row justify-content-center px-4">
+                  <% if @angler.errors.any? %>
+                    <div>
+                      <ul style="color: red">
+                        <% @angler.errors.full_messages.each do |message| %>
+                          <li><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                  <div class="col-auto">
+                    <div class="form-group mx-md-5 mt-5">
+                      ニックネーム（１０文字以内）</br>
+                      <%= f.text_field :name %>
+                    </div>
+                    <div class="form-group mx-md-5" style="color: #6600CC;">
+                      メールアドレス</br>
+                      <%= current_angler.email %>
+                    </div>
+                    <div class="form-group mx-md-5">
+                      プロフィール画像</br>
+                      <%= f.file_field :profile_image, accept: "image/*" %>
+                    </div>
+                    <div class="row justify-content-center">
+                      <div class="col-auto my-4">
+                        <%= f.submit '変更', class: "btn btn-lg px-4",  style: "background-color: #6600CC; color: #FFF;" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+            <div class="row border-right border-left border-dark" style="background-color: #BAC8D3;">
+              <div class="col text-center">
+                退会する方は下のボタンをクリックしたください。
+              </div>
+            </div>
+            <div class="row justify-content-center border-right border-left border-bottom border-dark pt-3 mb-4" style="background-color: #BAC8D3;">
+              <div class="col-auto">
+                <%= link_to "退会する", anglers_withdrawal_verification_path, class: "btn btn-secondary px-4 my-4" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
