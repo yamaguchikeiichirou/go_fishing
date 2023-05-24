@@ -2,12 +2,12 @@
   <div class="container-fluid">
     <div class="row">
       <%= render 'public/link' %>
-      <div class="col-4 my-5 mx-3 py-2 rounded border border-dark" style="background-color: #F5F5F5;">
+      <div class="col-11 col-md-4 my-5 mx-3 py-2 rounded border border-dark" style="background-color: #F5F5F5;">
         <%= form_with model: @fishing_success, local: true, url: fishing_successes_path, method: :post do |f| %>
-          <div class="row justify-content-md-center rounded-circle border border-dark mx-5 py-1" style="background-color: #31D2F2;">
+          <div class="row justify-content-center rounded-circle border border-dark mx-5 py-1" style="background-color: #31D2F2;">
             今回の釣果
           </div>
-          <div class="row justify-content-md-center border-bottom border-dark my-2">
+          <div class="row justify-content-center border-bottom border-dark my-2">
             <%= current_angler.name %>
           </div>
           <% if @fishing_success.errors.any? %>

@@ -27,14 +27,12 @@
               </div>
               <div class="col mt-2">
                 <%= f.select :fishing_spot, FishingSuccess.fishing_spots.keys.map {|k| [k, k]}, {include_blank: "---"}, {} %>
-              </div>
-              <div class="col text-right mt-2">
                 <%= f.submit '検索' %>
               </div>
             <% end %>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="d-none d-sm-block nav-item">
           <div class="row justify-content-md-center py-3">
             <div class="col mx-3">
               <%= link_to fishing_successes_path, class: "btn btn-warning btn-block" do %>
@@ -43,7 +41,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="d-none d-sm-block nav-item">
           <div class="row justify-content-center py-3">
             <div class="col mx-3">
               <%= link_to new_fishing_success_path, data: {"turbolinks" => false}, class: " btn btn-warning btn-block" do %>
@@ -52,7 +50,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="d-none d-sm-block nav-item">
           <div class="row justify-content-md-center py-3">
               <div class="col mx-3">
                 <%= link_to anglers_mypage_path, class: "btn btn-warning btn-block" do %>
@@ -61,7 +59,7 @@
               </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="d-none d-sm-block nav-item">
           <div class="row justify-content-md-center py-3">
             <div class="col mx-3">
               <%= link_to anglers_favorites_path, class: "btn btn-warning btn-block" do %>
@@ -70,7 +68,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="d-none d-sm-block nav-item">
           <div class="row justify-content-md-center py-3">
             <div class="col mx-3">
               <%= link_to anglers_fishing_successes_path, class: "btn btn-warning btn-block" do %>
